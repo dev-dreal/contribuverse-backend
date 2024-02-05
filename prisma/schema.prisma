@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgres"
-  url      = env("SUPABASE_DATABASE_CONNECTING_STRING")
+  url      = env("AZURE_DATABASE_CONNECTING_STRING")
 }
 
 model User {
