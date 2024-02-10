@@ -49,6 +49,12 @@ type Comment{
     createdAt:String
     updatedAt:String
 }
+type BookMark{
+    id:ID!
+    userId:String
+  itemId:String
+  createdAt:String
+}
 enum Category {
   TECH
   ANDROID

@@ -16,6 +16,8 @@ model User {
   bookMarks BookMark[]
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
+
+  @@map("users")
 }
 
 model Follower {
@@ -25,13 +27,16 @@ model Follower {
   userId    String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@map("followers")
 }
 
 model Blog {
   id        String    @id @default(uuid())
   title     String
   content   String    @db.Text
-  imageUrl  String
+  imageUrl  String    @map("image_urls")
   category  Category  @default(TECH)
   user      User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String?
@@ -40,6 +45,9 @@ model Blog {
   comments  Comment[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
+
+  @@index([userId])
+  @@map("blogs")
 }
 
 enum Category {
@@ -61,6 +69,9 @@ model Like {
   blogId    String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([blogId])
+  @@map("likes")
 }
 
 model Tag {
@@ -70,6 +81,9 @@ model Tag {
   blogId    String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([blogId])
+  @@map("tags")
 }
 
 model Comment {
@@ -79,6 +93,9 @@ model Comment {
   blogId    String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([blogId])
+  @@map("comments")
 }
 
 model BookMark {
@@ -87,4 +104,7 @@ model BookMark {
   userId    String?
   itemId    String
   createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@map("book_marks")
 }
