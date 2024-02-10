@@ -33,6 +33,9 @@ export const resolvers = {
         },
       });
     },
+    bookmarks: async (_parent: any, _args: any, context: Context) => {
+      return await context.prisma.bookMark.findMany();
+    },
   },
   Blog: {
     likes: async (parent: any, _args: any, context: Context) => {
@@ -180,6 +183,14 @@ export const resolvers = {
       return await context.prisma.follower.delete({
         where: {
           id: args.id,
+        },
+      });
+    },
+    addBookmark: async (_parent: any, args: any, context: Context) => {
+      return await context.prisma.bookMark.create({
+        data: {
+          userId: args.userId,
+          itemId: args.itemId,
         },
       });
     },

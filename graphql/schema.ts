@@ -75,6 +75,7 @@ type Query{
     likes:[Like]
     blog(id:ID!):Blog
     user(id:ID!):User
+    bookmarks:[BookMark]
 }
 type Mutation{
     createUser(name:String,email:String):User
@@ -90,5 +91,6 @@ type Mutation{
     deleteComment(id:ID!):Comment
     deleteTag(id:ID!):Tag
     deleteFollower(id:ID!):Follower
+    addBookmark(userId:String,itemId:String):BookMark
 }
 `;
