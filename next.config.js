@@ -3,7 +3,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/pages/api/:path*", // Matches all API routes
+        source: "/pages/api/graphql.ts", // Matches all API routes
         headers: [
           {
             key: "Access-Control-Allow-Origin",
