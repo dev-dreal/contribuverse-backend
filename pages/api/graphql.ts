@@ -5,7 +5,6 @@ import prisma from "@/prisma/db";
 import { startServerAndCreateNextHandler } from "@as-integrations/next";
 import { NextApiRequest, NextApiResponse } from "next";
 import { Context } from "@/types";
-
 const apolloServer = new ApolloServer<Context>({ typeDefs, resolvers });
 export default startServerAndCreateNextHandler(apolloServer, {
   context: async (req: NextApiRequest, res: NextApiResponse) => ({
@@ -14,3 +13,5 @@ export default startServerAndCreateNextHandler(apolloServer, {
     prisma,
   }),
 });
+
+//
