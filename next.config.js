@@ -3,13 +3,20 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/pages/api/graphql.ts", // Matches all API routes
+        // matching all API routes
+        source: "/api/graphql",
         headers: [
+          { key: "Access-Control-Allow-Credentials", value: "true" },
+          { key: "Access-Control-Allow-Origin", value: "*" }, // replace this your actual origin
           {
-            key: "Access-Control-Allow-Origin",
-            value: process.env.ALLOWED_CORS_ORIGINS,
+            key: "Access-Control-Allow-Methods",
+            value: "GET,DELETE,PATCH,POST,PUT",
           },
-          // Add other CORS headers if needed (e.g., Access-Control-Allow-Methods, Access-Control-Allow-Headers)
+          {
+            key: "Access-Control-Allow-Headers",
+            value:
+              "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+          },
         ],
       },
     ];
