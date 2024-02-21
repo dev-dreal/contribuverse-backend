@@ -13,12 +13,7 @@ const nextConfig = {
           { key: "Access-Control-Allow-Credentials", value: "true" },
           {
             key: "Access-Control-Allow-Origin",
-            value: (req) => {
-              if (allowedOrigins.includes(req.headers.origin)) {
-                return req.headers.origin;
-              }
-              return "https://contribuverse.vercel.app";
-            },
+            value: "https://contribuverse.vercel.app",
           },
           {
             key: "Access-Control-Allow-Methods",
