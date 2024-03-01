@@ -10,10 +10,7 @@ const allowCors =
   (fn: (req: NextApiRequest, res: NextApiResponse) => Promise<unknown>) =>
   async (req: NextApiRequest, res: NextApiResponse) => {
     res.setHeader("Access-Control-Allow-Credentials", "true");
-    // Check if the request origin is in the list of allowed origins
-    if (allowedOrigins.includes(origin)) {
-      res.setHeader("Access-Control-Allow-Origin", origin);
-    }
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader(
       "Access-Control-Allow-Methods",
       "GET,OPTIONS,PATCH,DELETE,POST,PUT"
