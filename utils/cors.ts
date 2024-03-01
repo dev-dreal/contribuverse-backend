@@ -1,6 +1,15 @@
+// Define an array of allowed origins
+const allowedOrigins = [
+  "https://contribuverse.vercel.app",
+  "http://localhost:4200",
+];
+
 const allowCors = (fn: any) => async (req: any, res: any) => {
   res.setHeader("Access-Control-Allow-Credentials", true);
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  // Check if the request origin is in the list of allowed origins
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET,OPTIONS,PATCH,DELETE,POST,PUT"
