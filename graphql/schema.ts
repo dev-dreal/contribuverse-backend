@@ -76,6 +76,7 @@ type Query{
     blog(id:ID!):Blog
     user(id:ID!):User
     bookmarks:[BookMark]
+    getUserByEmail(email:String):User!
 }
 type Mutation{
     createUser(name:String,email:String):User

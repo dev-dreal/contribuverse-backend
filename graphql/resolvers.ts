@@ -36,6 +36,11 @@ export const resolvers = {
     bookmarks: async (_parent: any, _args: any, context: Context) => {
       return await context.prisma.bookMark.findMany();
     },
+    getUserByEmail: async (_parent: any, args: any, context: Context) => {
+      return await context.prisma.user.findUnique({
+        where: { email: args.email },
+      });
+    },
   },
   Blog: {
     likes: async (parent: any, _args: any, context: Context) => {
