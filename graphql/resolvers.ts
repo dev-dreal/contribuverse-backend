@@ -87,6 +87,7 @@ export const resolvers = {
         data: {
           name: args.name,
           email: args.email,
+          profileImage: args.profileImage,
         },
       });
     },
@@ -130,6 +131,7 @@ export const resolvers = {
         data: {
           follower: args.follower,
           userId: args.userId,
+          followingUserId: args.followingUserId,
         },
       });
     },

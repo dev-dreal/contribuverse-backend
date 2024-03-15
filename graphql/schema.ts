@@ -3,6 +3,7 @@ type User{
     id:ID!
     name:String
     email:String
+    profileImage:String
     blogs:[Blog]
     followers:[Follower]
     createdAt:String
@@ -12,6 +13,7 @@ type Follower{
     id:ID!
     follower:Int
     userId:String
+    followingUserId:String
     createdAt:String
     updatedAt:String
 }
@@ -79,12 +81,12 @@ type Query{
     getUserByEmail(email:String):User!
 }
 type Mutation{
-    createUser(name:String,email:String):User
+    createUser(name:String,email:String,profileImage:String):User
     createBlog(title:String,content:String,imageUrl:String,category:Category,userId:String):Blog
     addLike(like:Int,blogId:String):Like
     createComment(comment:String,blogId:String):Comment
     createTag(tag:String,blogId:String):Tag
-    addFollower(follower:Int,userId:String):Follower
+    addFollower(follower:Int,userId:String,followingUserId:String):Follower
     updateBlog(id:ID!,title:String,content:String,imageUrl:String,category:Category):Blog
     updateComment(id:ID!,comment:String):Comment
     deleteBlog(id:ID!):Blog
