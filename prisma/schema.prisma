@@ -11,7 +11,7 @@ model User {
   id           String     @id @default(uuid())
   name         String
   email        String     @unique
-  profileImage String     @map("profile_images")
+  profileImage String     @default("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0eFYtMaXpWfthEAKY-smUSscnI0GjPGfTWdfaBYEBF1HhPucmwHF9ESBdEYqjz63ocxM&usqp=CAU") @map("profile_images")
   blogs        Blog[]
   followers    Follower[]
   bookMarks    BookMark[]
