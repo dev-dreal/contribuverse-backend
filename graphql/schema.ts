@@ -34,6 +34,7 @@ type Like{
     id:ID!
     like:Int
     blogId:String
+    userId:String
     createdAt:String
     updatedAt:String
 }
@@ -83,7 +84,7 @@ type Query{
 type Mutation{
     createUser(name:String,email:String,profileImage:String):User
     createBlog(title:String,content:String,imageUrl:String,category:Category,userId:String):Blog
-    addLike(like:Int,blogId:String):Like
+    addLike(like:Int,blogId:String,userId:String):Like
     createComment(comment:String,blogId:String):Comment
     createTag(tag:String,blogId:String):Tag
     addFollower(follower:Int,userId:String,followingUserId:String):Follower

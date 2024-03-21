@@ -107,6 +107,7 @@ export const resolvers = {
         data: {
           like: args.like,
           blogId: args.blogId,
+          userId: args.userId,
         },
       });
     },
